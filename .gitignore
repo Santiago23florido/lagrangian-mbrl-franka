@@ -37,7 +37,7 @@ datasets/
 data/
 
 # --- Experiment tracking / logs ---
-logs/
+logs/*
 runs/
 outputs/
 wandb/
