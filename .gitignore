@@ -1,0 +1,83 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+.conda/
+conda-env/
+
+# --- ML checkpoints / weights / datasets ---
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.h5
+*.npz
+*.npy
+*.pkl
+checkpoints/
+weights/
+datasets/
+data/
+
+# --- Experiment tracking / logs ---
+logs/
+runs/
+outputs/
+wandb/
+tensorboard/
+mlruns/
+lightning_logs/
+*.log
+
+# Keep the logs/ and figures/ directories themselves (placeholders), drop content
+!logs/.gitkeep
+!figures/.gitkeep
+
+# --- Generated figures (keep dir, ignore heavy artifacts) ---
+figures/*
+!figures/.gitkeep
+
+# --- Isaac Sim / Isaac Lab cache & logs ---
+.isaacsim/
+.nvidia-omniverse/
+kit/
+*.usd.tmp
+isaac_cache/
+omni.cache/
+
+# --- Hydra ---
+.hydra/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+.*.swp
+
+# --- IDE ---
+.idea/
+.vscode/
+*.code-workspace
+
+# --- DO NOT ignore docs or README ---
+!README.md
+!docs/
+!docs/**
