@@ -8,3 +8,4 @@ config:
   activation: softplus       # must be twice-differentiable
   epsilon: 1.0e-4            # keeps M(q) = L Lᵀ + εI strictly PD
   learn_dissipation: false   # set true for contact-rich tasks (relaxes A1)
+  loss_type: inverse         # canonical DeLaN torque MSE (stabler than "forward")
