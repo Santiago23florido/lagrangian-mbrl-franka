@@ -1,6 +1,7 @@
 """Evaluation: sample-efficiency, model-accuracy, and physics-consistency metrics."""
 
 from .metrics import (
+    acceleration_mse,
     energy_drift,
     mass_matrix_min_eigenvalue,
     rollout_mse,
@@ -9,6 +10,7 @@ from .metrics import (
 )
 
 __all__ = [
+    "acceleration_mse",
     "energy_drift",
     "mass_matrix_min_eigenvalue",
     "rollout_mse",
