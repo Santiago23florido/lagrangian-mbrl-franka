@@ -1,0 +1,16 @@
+# "sample_efficiency" preset — the headline research figure. Sweep n_train to
+# trace held-out model error vs. number of training transitions; the physics
+# prior should win most in the low-data regime.
+#
+# Launch the sweep with:
+#   python scripts/launch.py --preset sample_efficiency --sweep n_train=64,128,256,512,1024
+source: two_link
+models: [delan, mlp, mlp_ensemble]
+n_train: 256          # overridden by --sweep
+n_val: 2048
+seeds: [0, 1, 2, 3, 4]
+hpo_trials: 15
+hpo_epochs: 150
+train_epochs: 600
+dtype: float64
+n_bootstrap: 10000

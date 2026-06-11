@@ -1,0 +1,12 @@
+# "quick" preset — tiny budget to test the loop fast (seconds, not hours).
+# Use while iterating; switch to full.yaml for real numbers.
+source: two_link
+models: [delan, mlp]
+n_train: 128
+n_val: 512
+seeds: [0, 1]
+hpo_trials: 4
+hpo_epochs: 60
+train_epochs: 120
+dtype: float64
+n_bootstrap: 2000

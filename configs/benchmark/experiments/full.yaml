@@ -1,0 +1,12 @@
+# "full" preset — credible numbers (run overnight). All three models, 5 seeds,
+# full HPO + epochs. This is the headline offline comparison.
+source: two_link
+models: [delan, mlp, mlp_ensemble]
+n_train: 256
+n_val: 2048
+seeds: [0, 1, 2, 3, 4]
+hpo_trials: 20
+hpo_epochs: 150
+train_epochs: 600
+dtype: float64
+n_bootstrap: 10000
