@@ -86,3 +86,9 @@ desktop.ini
 # Plannings 
 .PROJECT_PLAN.md
 PROJECT_PLAN.md
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+theory/*.pdf
