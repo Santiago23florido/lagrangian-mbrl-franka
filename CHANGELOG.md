@@ -8,6 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Dynamics-learning benchmark pipeline (data → train → test, multi-seed + HPO).**
+  - `pipeline/registry.py`: recommended architectures behind one `build_model`
+    factory — structured **DeLaN** (C²-activation, SPD mass matrix) as the
+    proposed model, plus the PETS-style probabilistic **MLP ensemble** and a
+    plain MLP as unstructured baselines — each with a hyper-parameter space.
+  - `pipeline/data.py`: data-source abstraction (analytic `pendulum`/`two_link`
+    now; `franka:<log.npz>` Isaac Lab logs later) with seeded, model-shared
+    train/val splits.
+  - `pipeline/experiment.py`: train+test one `(model, hp, seed)` configuration.
+  - `pipeline/hpo.py`: hyper-parameter search — Optuna (TPE) if installed, with
+    a dependency-free random-search fallback.
+  - `pipeline/benchmark.py`: HPO → multi-seed retrain → bootstrap-CI comparison,
+    writing `benchmark_results.json`, `summary.csv`, and a bar plot.
+  - `scripts/run_benchmark.py` + `configs/benchmark/dynamics_offline.yaml`:
+    one-command, CPU-only overnight entry point.
+  - `tests/test_pipeline.py`: end-to-end pipeline tests on analytic data.
+  - `theory/dynamics_models.tex`: Lagrangian equations, where the network enters
+    DeLaN, per-model architectures, and the MPPI controller.
+  - Optional `optuna` dependency (`pip install -e ".[hpo]"`).
 - **Phase 0 — DeLaN implementation & offline reproduction (simulator-free).**
   - `models/deep_lagrangian_network.py`: full DeLaN forward pass — Cholesky-
     parameterized PD mass matrix `M(q) = L Lᵀ + εI`, potential-energy head

@@ -50,6 +50,9 @@ rl = [
     "rsl-rl-lib>=2.0",      # PPO baseline (Isaac Lab default trainer)
     "skrl>=1.1",            # alternative RL library
 ]
+hpo = [
+    "optuna>=3.4",          # smarter dynamics-benchmark HPO (random-search fallback otherwise)
+]
 dev = [
     "pytest>=7.4",
     "pytest-cov>=4.1",
