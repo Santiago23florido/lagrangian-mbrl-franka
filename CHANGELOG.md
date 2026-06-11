@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Model-free RL track — Franka reach in Isaac Lab (PPO / RSL-RL).**
+  - `rl/franka_reach_env_cfg.py`: the RL problem definition — a Franka Panda
+    reach task specializing Isaac Lab's `ReachEnvCfg` (joint-position control,
+    end-effector pose-tracking reward), with `num_envs` tuned for an 8 GB GPU,
+    plus a small `_PLAY` variant for evaluation/video.
+  - `rl/agents/rsl_rl_ppo_cfg.py`: recommended PPO agent — actor-critic MLP
+    `[256, 128, 64]` (ELU) with adaptive-KL PPO hyper-parameters.
+  - `rl/tasks.py`: registers `LMBRL-Franka-Reach-v0` / `-Play-v0`.
+  - `scripts/train_rl.py` / `scripts/play_rl.py`: self-contained Isaac Lab
+    launchers to train and visualize the PPO policy.
+  - `tests/test_rl_env_cfg.py`: config-wiring tests (skip without Isaac Lab).
+  - `docs/rl_quickstart.md`: how to train/play the RL baseline.
 - **Phase 0 — DeLaN implementation & offline reproduction (simulator-free).**
   - `models/deep_lagrangian_network.py`: full DeLaN forward pass — Cholesky-
     parameterized PD mass matrix `M(q) = L Lᵀ + εI`, potential-energy head
